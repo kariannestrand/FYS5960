@@ -9,7 +9,7 @@ class Axon:
     def __init__(self, num_segments):
         self.num_segments = num_segments                                               # [ms]
 
-    def shape_interpolated_axon(self, start_pos, end_pos, num_interpolation_points, noise): 
+    def shape_curved_axon(self, start_pos, end_pos, num_interpolation_points, noise): 
         num_segments = self.num_segments
 
         seg_len_frac = np.linspace(0, 1, num_interpolation_points)
@@ -36,21 +36,7 @@ class Axon:
         locs[:, 3] = np.ones(num_segments)
         return locs
 
-    def shape_straight_axon(self, start_pos, end_pos):
-        num_segments = self.num_segments
-
-        x = np.linspace(start_pos[0], end_pos[0], num_segments)
-        y = np.linspace(start_pos[1], end_pos[1], num_segments)
-        z = np.linspace(start_pos[2], end_pos[2], num_segments)
-
-        locs = np.zeros((num_segments, 4))
-        locs[:, 0] = x
-        locs[:, 1] = y
-        locs[:, 2] = z
-        locs[:, 3] = np.ones(num_segments)
-        return locs
-
-    def shape_coord_axon(self, coord):
+    def shape_straight_axon(self, coord):
         x = []
         y = []
         z = []

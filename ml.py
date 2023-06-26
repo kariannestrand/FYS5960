@@ -159,7 +159,7 @@ class ML:
         plt.xticks(fontsize = 12)
         plt.yticks(fontsize = 12)
         plt.legend(fontsize = 12)
-        if save_loss_plot:
+        if (save_loss_plot == True):
             plt.savefig(name_loss_plot)
         plt.show()
 
@@ -207,7 +207,7 @@ class ML:
         print(f"F1 score is {F1}")
         print(" ")
 
-    def test_scatter_plot(self, save_validation_scatter_plot, name_validation_scatter_plot):
+    def test_scatter_plot(self, save_test_scatter_plot, name_test_scatter_plot):
         X_test = self.X_test   
         stim_amp_log_norm = X_test[:, 0]
         min_dist_norm = X_test[:, 2]
@@ -226,8 +226,8 @@ class ML:
         plt.xticks(fontsize = 12)
         plt.yticks(fontsize = 12)
         plt.tight_layout()
-        if (save_validation_scatter_plot == True):
-            plt.savefig(name_validation_scatter_plot)
+        if (save_test_scatter_plot == True):
+            plt.savefig(name_test_scatter_plot)
         plt.show()
 
 
